@@ -146,73 +146,135 @@
 // console.log(baby.play()); 
 
 //task 5
+//version 1
+// function Song(title, artist) {
+//   this.title = title;
+//   this.artist = artist;
+//   this.isPlaying = false;
+// }
 
-Function.prototype.createMethods = function(objectOfMethods) {
-  for(const method in objectOfMethods) {
-    this.prototype[method] = objectOfMethods[method]
-  }
-} 
+// Song.prototype.play = function() {
+//   this.isPlaying = true;
+//   return ${this.title} started to play;
+// };
 
-function Song(title, artist) {
-  this.title = title;
-  this.artist = artist;
-  this.isPlaying = false;
-}
+// Song.prototype.stop = function() {
+//   this.isPlaying = false;
+//   return ${this.title} stopped;
+// };
 
+// function Playlist() {
+//   this.songs = [];
+//   this.currentIndex = 0;
+// }
 
-Song.prototype.play = function() {
-  this.isPlaying = true;
-  return `${this.title} started to play`;
-};
+// Playlist.prototype.add = function(song) {
+//   this.songs.push(song);
+// };
 
-Song.prototype.stop = function() {
-  this.isPlaying = false;
-  return `${this.title} stopped`;
-};
+// Playlist.prototype.play = function() {
+//   if (this.currentIndex < this.songs.length) {
+//     return this.songs[this.currentIndex].play();
+//   }
+// };
 
-function Playlist() {
-      this.songs = [];
-      this.currentIndex = 0;
-    }
+// Playlist.prototype.stop = function() {
+//   if (this.currentIndex < this.songs.length) {
+//     return this.songs[this.currentIndex].stop();
+//   }
+// };
 
-   const object = {
-       add: function(song) {
-      this.songs.push(song);
-    },
+// Playlist.prototype.next = function() {
+//   if (this.currentIndex < this.songs.length - 1) {
+//     this.songs[this.currentIndex].stop();
+//     this.currentIndex = this.currentIndex + 1
+//     return this.songs[this.currentIndex].play();
+//   }
+// };
 
-    play: function() {
-      if (this.currentIndex < this.songs.length) {
-        return this.songs[this.currentIndex].play();
-      }
-    },
+// const playlist = new Playlist();
+// const heyJude = new Song("Hey Jude", "The Beatles");
+// const jaded = new Song("Jaded", "Aerosmith");
 
-    stop: function() {
-      if (this.currentIndex < this.songs.length) {
-        return this.songs[this.currentIndex].stop();
-      }
-    },
+// playlist.add(heyJude);
+// playlist.add(jaded);
 
-    next: function() {
-      if (this.currentIndex < this.songs.length - 1) {
-        this.songs[this.currentIndex].stop();
-        this.currentIndex = this.currentIndex + 1;
-        return this.songs[this.currentIndex].play();
-      }
-    }
+// console.log(playlist.play());  
+// console.log(playlist.next());  
+// console.log(playlist.next());  
+// console.log(playlist.stop());  
+// console.log(playlist.play());
+
+//version 2
+// Function.prototype.createMethods = function(objectOfMethods) {
+//   for(const method in objectOfMethods) {
+//     this.prototype[method] = objectOfMethods[method]
+//   }
+// } 
+
+// function Song(title, artist) {
+//   this.title = title;
+//   this.artist = artist;
+//   this.isPlaying = false;
+// }
+
+// const objectSong = {
+//   play: function() {
+//     this.isPlaying = true;
+//     return `${this.title} started to play`;
+//    },
+
+//   stop: function() {
+//     this.isPlaying = false;
+//     return `${this.title} stopped`;
+//   }
+// }
+
+// Song.createMethods(objectSong)
+
+// function Playlist() {
+//       this.songs = [];
+//       this.currentIndex = 0;
+//     }
+
+//  const objectPlaylist = {
+//     add: function(song) {
+//       this.songs.push(song);
+//     },
+
+//     play: function() {
+//       if (this.currentIndex < this.songs.length) {
+//         return this.songs[this.currentIndex].play();
+//       }
+//     },
+
+//     stop: function() {
+//       if (this.currentIndex < this.songs.length) {
+//         return this.songs[this.currentIndex].stop();
+//       }
+//     },
+
+//     next: function() {
+//       if (this.currentIndex < this.songs.length - 1) {
+//         this.songs[this.currentIndex].stop();
+//         this.currentIndex = this.currentIndex + 1;
+//         return this.songs[this.currentIndex].play();
+//       }
+//     }
     
-   };
+//    };
 
-Playlist.createMethods(object)
+// Playlist.createMethods(objectPlaylist)
 
-const playlist = new Playlist();
-const heyJude = new Song("Hey Jude", "The Beatles");
-const jaded = new Song("Jaded", "Aerosmith");
+// const playlist = new Playlist();
+// const heyJude = new Song("Hey Jude", "The Beatles");
+// const jaded = new Song("Jaded", "Aerosmith");
 
-playlist.add(heyJude);
-playlist.add(jaded);
+// playlist.add(heyJude);
+// playlist.add(jaded);
 
-console.log(playlist.play());  
-console.log(playlist.next());  
-console.log(playlist.next());  
-console.log(playlist.stop());  
-console.log(playlist.play()); 
+// console.log(playlist.play());  
+// console.log(playlist.next());  
+// console.log(playlist.next());  
+// console.log(playlist.stop());  
+// console.log(playlist.play()); 
