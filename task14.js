@@ -31,6 +31,7 @@
 // console.log(isPositive(0))
 
 //task 3
+
 // function reverseString1(s) {
 // typeof s !== "string"
 // ? console.log("s.split is not a function")
@@ -39,7 +40,6 @@
 // }
 // reverseString(5)
 
-//--------------------------
 
 // function reverseString2(s){
 //     try{
@@ -55,24 +55,38 @@
 // console.log(reverseString2(14))
 
 //task 4
-let studentLabs2 = [
-{
-student: "Blake",
-myCode: function (num) {
-return Math.pow(num, num);
-},
-},
-{
-student: "Jessica",
-runLab: function (num) {
-return Math.pow(num, num);
-},
-},
-{
-student: "Mya",
-runLab: function (num) {
-return num * num;
-},
-},
-];
-gradeLabs(studentLabs2);
+
+// function gradeLabs(labs) { 
+//    for (let i = 0; i < labs.length; i++) {
+//       try{
+//           let lab = labs[i];
+//           let result = lab.runLab(3);
+//           console.log(`${lab.student} code worked: ${result === 27}`);
+
+//       }catch(error){
+//            console.log(`${labs[i].student} code worked: Error thrown.`)
+//         }
+//     }
+// }
+
+// let studentLabs2 = [
+//     {
+//     student: "Blake",
+//     myCode: function (num) {
+//     return Math.pow(num, num);
+//     },
+//     },
+//     {
+//     student: "Jessica",
+//     runLab: function (num) {
+//     return Math.pow(num, num);
+//     },
+//     },
+//     {
+//     student: "Mya",
+//     runLab: function (num) {
+//     return num * num;
+//     },
+//     },
+// ];
+// gradeLabs(studentLabs2);
