@@ -306,7 +306,7 @@ var e = {
         return new Number(3);
     }
 };
-console.log()
+
 
 // null + undefined // NaN
 // null + true //1
@@ -466,3 +466,68 @@ void c                 // undefined
 void d                 // undefined
 void e                 // undefined
 void f                 // ReferenceError
+
+// 1 ? 234 : 32   -> 234
+// a[a.hasOwnProperty('valueOf') ? 'valueOf' : 'toString'](), //'hello'
+// b[b.hasOwnProperty('valueOf') ? 'valueOf' : 'toString'](), //3
+// c[c.hasOwnProperty('valueOf') ? 'valueOf' : 'toString'](), //[Number: 3]
+// d[d.hasOwnProperty('valueOf') ? 'valueOf' : 'toString'](), // 123
+// e[e.hasOwnProperty('valueOf') ? 'valueOf' : 'toString']() //[Number: 3]
+
+null instanceof Object //false
+true instanceof Boolean // true
+false instanceof Boolean //true
+1 instanceof Number //true
+NaN instanceof Number //true
+'hello' instanceof String //true
+(function () { }) instanceof Function //true
+(function () { }) instanceof Object //true
+a instanceof Object //true
+b instanceof Object //true
+c instanceof Object //true
+d instanceof Object //true
+e instanceof Object //true
+f instanceof Object //false
+new Number(1) instanceof Number //true
+new Number(NaN) instanceof Object //true
+/hello/img instanceof RegExp //true
+/hello/img instanceof Function //false
+/hello/img instanceof Object //true
+
+'valueOf' in null, // TypeError
+'valueOf' in undefined, // TypeError
+'valueOf' in true, // TypeError
+'valueOf' in 1, // TypeError
+'valueOf' in 'toString', // TypeError
+'valueOf' in new Number(1), //true
+'x' in new Number(1), // false
+'valueOf' in a , // true
+'valueOf' in b , // true
+'valueOf' in c, // true
+'valueOf' in d, // true
+'valueOf' in e, // true
+'valueOf' in f, // TypeError
+'toString' in a , // true
+'toString' in b , // true
+'toString' in c, // true
+'toString' in d, // true
+'toString' in e, // true
+'toString' in f, // TypeError
+'call' in ({}), // false
+'call' in (function () { }) // true
+
+delete ({}).valueOf, // true
+delete 1, // true
+delete 1.2, //true
+delete 1.2.toString, // true
+delete a.x  // true
+a.y = 3;
+console.log(delete a.y); // true
+delete f // true
+delete z // true
+var x = 3;
+console.log(delete x);  //false
+console.log(x); // 3
+y = 4;
+console.log(delete y); // true
+console.log(y); // ReferenceError
