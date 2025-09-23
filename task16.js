@@ -1,7 +1,7 @@
 // task  1 
 //version 1
-// function Calculator() {
-//  return Calculator.prototype={
+// function Calculator() {}
+//   Calculator.prototype={
 //   add(a, b) {
 //     return a + b;
 //   },
@@ -15,7 +15,7 @@
 //     return a / b;
 //   }
 // };
-// }
+
 
 // const calculator = new Calculator();
 // console.log(calculator.add(10, 5));
@@ -54,24 +54,24 @@
 
 //task 2
 // function Person(name, age) {
-//   return Person.prototype = {
-//     name,
-//     age,
-//     stomach: [],
-//     eat(food){
+//     this.name = name
+//     this.age = age
+//     this.stomach = []
+// }
+//     Person.prototype.eat = function(food){
 //         if(this.stomach.length < 10) {
 //             this.stomach.push(food)
 //             return this.stomach
 //         }
-//     },
-//     poop(){
+//     }
+//     Person.prototype.poop = function () {
 //         this.stomach = []
-//         return this.stomach
-//     },
-//     toString(){
+//         return this.stomach 
+//     }
+//     Person.prototype.toString = function (name,age)  {
 //         return `${this.name}, ${this.age}`
-//     },
-//     compareAge(other) {
+//     }
+//     Person.prototype.compareAge = function (other) {
 //        if(other.age > this.age) {
 //         return `${other.name} is older than me.`}
 //        else if(other.age < this.age) {
@@ -80,46 +80,46 @@
 //         return `${other.name} is the same age as me.`
 //        }
 //     }
-//   }
-// }
-// const p1 = Person("Samuel", 24)
-// const p2 = Person("Joel", 36)
-// const p3 = Person("Lily", 24)
-// console.log(p1.compareAge(p2)) // "Joel is older than me."
-// p2.compareAge(p1) // "Samuel is younger than me."
-// p1.compareAge(p3) // "Lily is the same age as me."
-// console.log(p1.eat("apple"),
-// p1.toString() )// "Name, Age"
+
+// const p1 = new Person("Samuel", 24)
+// const p2 = new Person("Joel", 36)
+// const p3 = new Person("Lily", 24)
+// console.log(p1.compareAge(p2), // "Joel is older than me."
+// p2.compareAge(p1), // "Samuel is younger than me."
+// p1.compareAge(p3), // "Lily is the same age as me."
+// p1.eat("apple"),
+// p1.toString())// "Name, Age"
 
 //task 3
-// function Car(model, milesPerGallon) {
-//   return Car.prototype =  {
-//     model,
-//     milesPerGallon,
-//     tank: 0,
-//     odometer: 0,
 
-//     fill(gallons) {
+// function Car(model, milesPerGallon){
+//     this.model = model
+//     this.milesPerGallon = milesPerGallon
+//     this.tank = 0
+//     this.odometer = 0
+// }
+
+//     Car.prototype.fill = function(gallons){
 //       this.tank += gallons;
-//     },
+//       return this.tank
+//     }
 
-//     drive(distance) {
+//      Car.prototype.drive = function(distance){
 //       const driveableMiles = this.tank * this.milesPerGallon;
-
 //       if (distance <= driveableMiles) {
 //         this.odometer += distance;
 //         this.tank -= distance / this.milesPerGallon;
+//         return this.odometer
 //       } else {
 //         this.odometer += driveableMiles;
 //         this.tank = 0;
 //         return `I ran out of fuel at ${this.odometer} miles!`;
 //       }
 //     }
-//   };
-// }
-// const car1 = Car("Toyota", 25);
+  
 
-// car1.fill(2); // tank = 2 gallons
+// const car1 = new Car("Toyota", 25);
+// console.log(car1.fill(2)); // tank = 2 gallons
 // console.log(car1.drive(30)); // drives 30 miles, uses 1.2 gallons
 // console.log(car1.odometer);  // 30
 // console.log(car1.tank);      // 0.8
@@ -128,18 +128,17 @@
 
 //task 4 
 // function Person(name, age) {
-//     return Person.prototype = {
-//     name,
-//     age,
-//     }
+//    this.name = name
+//    this.age = age 
 // }
 
 // function Baby(name, age, favoriteToy) {
 //   Person.call(this, name, age); 
 //   this.favoriteToy = favoriteToy;
+// }
+
 //   Baby.prototype.play = function() {
 //   return `Playing with ${this.favoriteToy}`;
-// };
 // }
 
 // const baby = new Baby("Tommy", 2, "ball");
@@ -206,6 +205,7 @@
 // console.log(playlist.play());
 
 //version 2
+
 // Function.prototype.createMethods = function(objectOfMethods) {
 //   for(const method in objectOfMethods) {
 //     this.prototype[method] = objectOfMethods[method]
