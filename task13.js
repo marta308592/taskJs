@@ -130,3 +130,69 @@
 // }
 // const add5 = partial(add, 5);
 // console.log(add5(10, 20)); // Output: 35 (5 + 10 + 20)
+
+//task6
+
+// function fibonacci(n) {
+//   if(n <=1 )
+//      return n
+//   let x = 0
+//   let y = 1 
+//   for(let i = 2; i < n + 1; i++){
+//     let curr = x + y
+//     x = y
+//     y = curr
+//   }
+//   return y
+// }
+
+// function memoize(funct  = {}){
+//   let cached = {}
+//   return (num) => {
+//     if(cached.hasOwnProperty(num))
+//       return `Output: ${cached[num]} (cached)`
+//     else
+//       cached[num] = funct(num)
+//        return `Output: ${cached[num]} (calculated)`
+//   }
+// }
+
+// const memoizedFibonacci = memoize(fibonacci);
+// console.log(memoizedFibonacci(10)); // Output: 55 (calculated)
+// console.log(memoizedFibonacci(10)); // Output: 55 (cached)
+
+//task 7
+
+// function createCalculator(string = ''){
+//   return (x , y) => {
+//     if(string === 'add')  return x + y
+//     else if(string === 'subtract')  return x - y
+//     else  if(string === 'multiply')  return x * y
+//     else  if(string === 'divide')  return x / y
+//     }
+// }
+// const add = createCalculator("add");
+// console.log(add(3, 5)); // Output: 8
+// const multiply = createCalculator("multiply");
+// console.log(multiply(2, 4)); // Output: 8
+
+//task 8
+
+// function curry(fn) {
+//   return function curried(...args) {
+//     if (args.length >= fn.length) {
+//       return fn(...args);
+//     } else {
+//       return (...nextArgs) => curried(...args, ...nextArgs);
+//     }
+//   };
+// }
+
+// function add(a, b, c) {
+//   return a + b + c;
+// }
+
+// const curriedAdd = curry(add);
+// console.log(curriedAdd(1)(2)(3));  
+// console.log(curriedAdd(1)(2)(3));   
+// console.log(curriedAdd(1, 2)(3));   
