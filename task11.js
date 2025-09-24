@@ -196,6 +196,7 @@ score: 25
 
 //2nd task
 
+//version 1
 // function lowestScoreStudenName(evaluations = []){
 //    let name = ''
 //    let min = 100
@@ -210,27 +211,36 @@ score: 25
 // console.log(lowestScoreStudenName(evaluations))
 
 
+//version 2
+// function lowestScore(evaluations = []){
+//   let object={}
+//    evaluations.reduce((acc, studentInfo) => { 
+//       if(acc > studentInfo.score){
+//         object = studentInfo
+//         acc = studentInfo.score
+//       }
+//         return acc
+//         } , 100)
+//    return object.studentName
+// }
+// console.log(lowestScore(evaluations))
 
+//task 3
+// function moreThan60(evaluations = []){
+//   return evaluations.reduce((acc, { score ,studentName }) => {
+//     if(score > 60)
+//        acc.push(studentName)
+//     return acc
+//   },[])
+// }
 
-
-
-function lowestScore(evaluations = []){
-  let object={}
-   evaluations.reduce((acc, studentInfo) => { 
-      if(acc > studentInfo.score){
-        object = studentInfo
-        return score}
-        else 
-        return acc
-        })
-        return object.studentName
-}
-console.log(lowestScore(evaluations))
-
+// console.log(moreThan60(evaluations))
 
 // task 4
+
+//version 1
+
 // function average(array = []){
-//   const  res = []
 //   const  ids = []
 //   let scores = array.reduce((acc,ev) => {
 //         if(!acc.hasOwnProperty(ev.studentId)){
@@ -258,5 +268,49 @@ console.log(lowestScore(evaluations))
 //     },[])
 //  }
 
-// console.log(average(evaluations))
+// console.log(average(evaluations))   
 
+//version 2
+
+// function averageLessThan40(evaluations = []){
+//   const scoresObj = evaluations.reduce((acc,{studentName , score}) => {
+//     if(!acc.hasOwnProperty(studentName))
+//        acc[studentName] = [score]
+//     else
+//       acc[studentName].push(score)
+//     return acc  
+//   },{})
+ 
+//   const StudentNames = []
+//   for(const item in scoresObj){
+//     const checkAverage = scoresObj[item].reduce((acc , item) =>
+//        acc + item, 0) / scoresObj[item].length 
+//     if(checkAverage < 40)
+//       StudentNames.push(item)
+//   }
+//   return StudentNames
+// }
+
+// console.log(averageLessThan40(evaluations))
+
+
+//task 5
+
+// function coursesWithAverages(evaluations = []){
+//  const scoresObj =  evaluations.reduce((acc , {courseName, score}) => {
+//    if(!acc.hasOwnProperty(courseName))
+//       acc[courseName] = [score]
+//     else 
+//       acc[courseName].push(score)
+//     return acc
+//  },{})
+
+//  for(const item in scoresObj){
+//    scoresObj[item] = scoresObj[item].reduce((acc,item) => {
+//      return acc + item
+//    },0) / scoresObj[item].length
+//  }
+//  return scoresObj
+// }
+
+// console.log(coursesWithAverages(evaluations))
